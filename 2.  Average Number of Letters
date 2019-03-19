@@ -1,0 +1,27 @@
+#include <iostream>
+#include <string>
+#include <cstring>
+using namespace std;
+double avgLetters(char *);
+const int LENGTH = 100;
+int main()
+{
+char Input[LENGTH];
+cout << "Enter a string: ";
+cin.getline(Input, LENGTH);
+cout << "Average number of letters in each word of the string\n\"" 
+		 << Input << "\": " << avgLetters(Input) << endl;
+return 0;
+}
+double avgLetters(char *Str)
+{
+	int word = 0, letter = 0;
+            for (int i = 0; i < strlen(Str); i++)
+	{
+		if ((Str[0] != '\0' && i == 0) || isspace(Str[i]))
+			word++;
+		if (isalpha(Str[i]))
+			letter++;
+	}
+	return letter / word;
+}
